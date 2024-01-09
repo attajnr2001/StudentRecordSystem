@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "password": "password123",
+      "email": "john.doe@example.com",
+      "role": "teacher",
+      "imageURL": "https://example.com/johndoe.jpg",
+      "course": "Computer Science",
+      "subject": "Programming"
+    },
+    {
+      "id": 2,
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "password": "alice@123",
+      "email": "alice.smith@example.com",
+      "role": "teacher",
+      "imageURL": "https://example.com/alicesmith.jpg",
+      "course": "Mathematics",
+      "subject": "Algebra"
+    },
+    {
+      "id": 3,
+      "firstName": "Bob",
+      "lastName": "Johnson",
+      "password": "bob123",
+      "email": "bob.johnson@example.com",
+      "role": "admin",
+      "imageURL": "https://example.com/bobjohnson.jpg",
+      "course": "Biology",
+      "subject": "Anatomy"
+    },
+    {
+      "id": 4,
+      "firstName": "Eva",
+      "lastName": "Williams",
+      "password": "eva@456",
+      "email": "eva.williams@example.com",
+      "role": "teacher",
+      "imageURL": "https://example.com/evawilliams.jpg",
+      "course": "Chemistry",
+      "subject": "Organic Chemistry"
+    }
+  ]
+}

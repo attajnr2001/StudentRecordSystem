@@ -1,0 +1,17 @@
+.widget-container {
+  opacity: 1;
+  display: block; /* Default to block */
+  display: flex;
+  
+
+  &.hidden {
+    opacity: 0;
+
+    display: none; /* Hide when not visible */
+  }
+
+  &.visible {
+    opacity: 1;
+    display: block; /* Show when visible */
+  }
+}
