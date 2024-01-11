@@ -1,39 +1,55 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography, Paper, TextField, Button } from "@mui/material";
+import "../styles/login.scss";
+import {
+  Box,
+  Typography,
+  Paper,
+  TextField,
+  Button,
+  Snackbar,
+  Alert,
+} from "@mui/material";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [openAlert, setOpenAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Assuming your JSON server is running on http://localhost:3001
     const apiUrl = "http://localhost:3001/users";
     const response = await fetch(apiUrl);
     const users = await response.json();
 
-    // Check if the user with the provided email exists
     const user = users.find((user) => user.email === username);
 
     if (user && user.password === password) {
-      // Successful login
       if (user.role === "teacher") {
-        // Redirect to the teacher overview page
         navigate("/teacher");
       } else if (user.role === "admin") {
-        // Redirect to the admin overview page
         navigate("/admin");
       } else {
-        // Handle other roles or scenarios
-        console.log("Invalid role. Please contact support.");
+        showAlert("Invalid role. Please contact support.");
       }
     } else {
-      // Invalid credentials
-      console.log("Invalid credentials. Please try again.");
+      showAlert("Invalid credentials. Please try again.");
     }
+  };
+
+  const showAlert = (message) => {
+    setAlertMessage(message);
+    setOpenAlert(true);
+  };
+
+  const handleAlertClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenAlert(false);
   };
 
   return (
@@ -88,17 +104,34 @@ const Login = () => {
             fullWidth
             variant="contained"
             sx={{
-              backgroundColor: "#4CAF50",
+              backgroundColor: "#2610c9",
               color: "#fff",
               mt: 2,
               "&:hover": {
-                backgroundColor: "#45a049",
+                backgroundColor: "#0f1e6a",
               },
             }}
           >
             Sign In
           </Button>
         </form>
+
+        {/* Snackbar for alerts */}
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={3000}
+          onClose={handleAlertClose}
+        >
+          <Alert
+            className="info"
+            onClose={handleAlertClose}
+            severity="warning"
+            elevation={6}
+            variant="filled"
+          >
+            {alertMessage}
+          </Alert>
+        </Snackbar>
       </Paper>
     </Box>
   );
