@@ -40,7 +40,7 @@ const AdminDashboard = () => {
       </div>
 
       <div className={`widget-container ${showWidgets ? "visible" : "hidden"}`}>
-        <Stack direction="row" useFlexGap flexWrap="wrap">
+        <Stack direction="row" useFlexGap flexWrap="wrap" sx={{justifyContent:{xs:"center", md: "normal"}}}>
           <TopStudent
             title="SCIENCE"
             isMoney={false}

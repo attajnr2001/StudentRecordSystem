@@ -21,7 +21,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const apiUrl = "http://localhost:3001/users";
+    const apiUrl = "http://localhost:3100/users";
     const response = await fetch(apiUrl);
     const users = await response.json();
 

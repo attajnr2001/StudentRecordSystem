@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  MonetizationOnOutlined,
-  ShoppingCartOutlined,
-  KeyboardArrowUp,
-  PersonOutlined,
-  AccountBalanceWalletOutlined,
-} from "@mui/icons-material";
+import { KeyboardArrowUp } from "@mui/icons-material";
 import PropTypes from "prop-types";
 import "../styles/topStudent.scss";
 

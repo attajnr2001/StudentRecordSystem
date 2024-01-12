@@ -1,8 +1,8 @@
 .widget-container {
   opacity: 1;
-  display: block; /* Default to block */
   display: flex;
-  
+  justify-content: center;
+  align-items: center;
 
   &.hidden {
     opacity: 0;
