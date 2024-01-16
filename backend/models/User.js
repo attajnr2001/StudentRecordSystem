@@ -30,7 +30,7 @@ const userSchema = mongoose.Schema(
     pictureURL: {
       type: String,
     },
-    course: {
+    subject: {
       type: String,
     },
   },

@@ -1,11 +1,12 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/User.js";
 import generateToken from "../utils/generateToken.js";
-
-import { createCourse } from "../utils/createTemp.js";
+import Course from "../models/Course.js";
+import Subject from "../models/Subject.js";
+import { createCourse, createSubject } from "../utils/createTemp.js";
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { firstName, lastName, role, email, password, pictureURL, course } =
+  const { firstName, lastName, role, email, password, pictureURL, subject } =
     req.body;
 
   const userExists = await User.findOne({ email });
@@ -21,7 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
     lastName,
     role,
     pictureURL,
-    course,
+    subject,
   });
 
   if (user) {
@@ -35,7 +36,7 @@ const registerUser = asyncHandler(async (req, res) => {
       role: user.role,
       password: user.password,
       pictureURL: user.pictureURL,
-      course: user.course,
+      subject: user.subject,
     });
   } else {
     res.status(400);
@@ -43,6 +44,6 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-createCourse("Science");
+createSubject("Core Mathematics");
 
 export { registerUser };
